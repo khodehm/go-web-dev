@@ -1,0 +1,3 @@
+    <ul>
+        <li> {{.Name}} _ {{.Skils}}</li>
+    </ul> 

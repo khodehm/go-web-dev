@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sign up</title>
+  </head>
+  <body>
+    <form method="POST">
+      <input type="text" name="name" id="name" placeholder="enter your name"/>
+      <!-- <input type="text" name="" id="" /> -->
+      <input type="text" name="username" id="username" placeholder="enter valid username"/>
+      <button>submit</button>
+    </form>
+    {{if .Name}}
+        <p>firstname: {{.Name}} </p>
+        <p>username : {{.Username}} </p>
+    {{end}}
+  </body>
+  <style>
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    input{
+        all:unset;
+        border: 1px solid #ebebeb;
+        padding: 1rem;
+        border-radius: 10px;
+    }
+    button{
+        all:unset;
+        padding:1rem;
+        background: #ebebeb;
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: center;
+        font: 15px Arial, sans-serif;
+    }
+  </style>
+</html>

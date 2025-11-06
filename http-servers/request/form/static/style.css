@@ -1,0 +1,26 @@
+body,html{
+    background: #ebebeb;
+}
+form{
+    background:#fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #ebebeb;
+    border-radius: 20px;
+
+}
+input{
+    all: unset;
+    padding: 1rem;
+    border: 1px solid #ebebeb;
+    font-size: large;
+    border-radius: 20px;
+}
+button{
+    padding: 1rem;
+     font-size: large;
+     border: 1px solid #ebebeb;
+    border-radius: 20px;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form data</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    {{if . }}
+    <div>
+      <p>request method:</p>
+      <br />
+      <p><span>method:</span><br /><span>{{.Method}}</span></p>
+      <p><span>header:</span><br /><span>{{.Header}}</span></p>
+      <p><span>host:</span><br /><span>{{.Host}}</span></p>
+
+      <br /><br /><br />
+    </div>
+    <main>
+      <ul>
+        {{range $key,$value:=.Form}}
+        <p>{{$key}}</p>
+        <li>{{range $value}} {{.}} {{end}}</li>
+        {{end}}
+      </ul>
+    </main>
+    {{end}}
+    <form action="/" method="POST">
+      <input type="text" name="fname" placeholder="نام" id="fname" />
+      <input type="text" name="lname" id="lname" placeholder="نام خانوادگی" />
+      <input type="text" name="age" id="age" placeholder="سن" />
+      <button>submit</button>
+    </form>
+  </body>
+</html>

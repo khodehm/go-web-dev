@@ -1,0 +1,31 @@
+{{ define "header" }}
+
+<section>
+  <a href="/signup">signup</a>
+  <a href="/login">login</a>
+  <a href="/dashboard">dashboard</a>
+  <a href="/logout">logout</a>
+</section>
+<style>
+  body {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  section {
+    position: relative;
+    top: 2;
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #ebebeb;
+    border-radius: 20px;
+    padding: 1rem;
+  }
+  a {
+    color: #000;
+  }
+</style>
+
+{{end}}
