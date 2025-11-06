@@ -29,6 +29,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 		checkError(err)
 		defer f.Close()
 		ext := strings.Split(fh.Filename, ".")[1]
+		fmt.Println(ext)
 		h := sha1.New()
 		io.Copy(h, f)
 	}
