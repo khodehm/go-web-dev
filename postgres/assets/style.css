@@ -1,0 +1,113 @@
+html,
+body {
+  box-sizing: border-box;
+  font-family: "Yekan";
+  background: #4545f0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+main {
+  padding: 4rem;
+  font-family: "Yekan";
+}
+.books {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+}
+@media (min-width: 680px) {
+  .books {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+@media (min-width: 1280px) {
+  .books {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+}
+.book_card {
+  position: relative;
+  border-radius: 15px;
+  padding: 1rem;
+  background: #2e2ea8;
+  color: #fff;
+  p {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card_title {
+    text-align: center;
+    text-wrap: wrap;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .card_price {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #5656fc;
+    border-radius: 20%;
+    font-size: 0.9rem;
+    padding: 5px;
+  }
+}
+nav {
+  display: flex;
+  border-radius: 15px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  color: #fff;
+  background: #5555ff;
+  h3 {
+    font-size: 20px;
+  }
+  a {
+    background: #2e2ea8;
+    text-decoration: none;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+.create_book{
+  background: #5555ff;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  /* border: 1px solid #2e2ea8; */
+  border-radius: 15px;
+  input{
+    all: unset;
+    background:#2e2ea8;
+    /* border: 1px solid #2e2ea8; */
+    color: #fff;
+    border-radius: 15px;
+    padding: .8rem;
+
+  }
+  input::placeholder{
+    color: #fff;
+  }
+  button{
+    all: unset;
+    cursor: pointer;
+    background: #2e2ea8;
+    color: #fff;
+    border-radius: 15px;
+    padding: .8rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+}
+h3{
+  color: #fff;
+}

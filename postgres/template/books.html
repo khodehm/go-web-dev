@@ -1,0 +1,35 @@
+{{define "books"}}
+    {{range .}}
+        <section class="book_card" id="{{.Isbn}}">
+            <div class="card_price">
+                <span>
+                    {{.Price}}
+                </span>
+                <span>$</span>
+            </div>
+            <div class="card_title">
+                <span>
+                    {{.Title}}
+                </span>
+            </div>
+            <div class="card_details">
+                <p>
+                    <span>
+                        نویسنده:
+                    </span>
+                    <span>
+                        {{.Author}}
+                    </span>
+                </p>
+                <p>
+                    <span>
+                        کد کتاب:
+                    </span>
+                    <span>
+                        {{.Isbn}}
+                    </span>
+                </p>
+            </div>
+        </section>
+    {{end}}
+{{end}}
