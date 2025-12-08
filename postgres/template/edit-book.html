@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ویرایش کتاب </title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/Yekan-Font-3.0/Yekan.css" />
+  </head>
+  <body dir="rtl">
+    {{template "nav"}}
+    <h3>ویرایش کتاب {{.Title}}</h3>
+    <main>
+      <form  class="create_book" action="/book/edit/process" method="post">
+        <input type="text" placeholder="کد کتاب" required name="isbn" value="{{.Isbn}}"/>
+        <input type="text" placeholder="نام کتاب" required name="title" value="{{.Title}}"/>
+        <input type="text" placeholder="نویسنده" required name="author" value="{{.Author}}"/>
+        <input type="text" placeholder="قیمت" required name="price" maxlength="3" value="{{.Price}}"/>
+        <button>ثبت</button>
+      </form>
+    </main>
+  </body>
+</html>

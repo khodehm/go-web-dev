@@ -41,19 +41,37 @@ main {
     justify-content: space-between;
   }
   .card_title {
-    text-align: center;
-    text-wrap: wrap;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 70% ;
+    align-items: center;
+    justify-content: center;    
     font-size: 1.5rem;
     font-weight: bold;
   }
   .card_price {
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: flex; 
+    justify-content: space-between;
     background: #5656fc;
-    border-radius: 20%;
+    border-radius: 10px;
     font-size: 0.9rem;
-    padding: 5px;
+    padding: 1rem;
+    cursor: pointer;
+  }
+  .card_action {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    gap: 1rem;
+    a {
+      svg{
+        stroke: white !important;
+        height: 18px;
+        width: 18px;
+
+      }
+    }
   }
 }
 nav {
@@ -76,7 +94,7 @@ nav {
     padding: 10px;
   }
 }
-.create_book{
+.create_book {
   background: #5555ff;
   display: flex;
   flex-direction: column;
@@ -84,30 +102,29 @@ nav {
   padding: 1rem;
   /* border: 1px solid #2e2ea8; */
   border-radius: 15px;
-  input{
+  input {
     all: unset;
-    background:#2e2ea8;
+    background: #2e2ea8;
     /* border: 1px solid #2e2ea8; */
     color: #fff;
     border-radius: 15px;
-    padding: .8rem;
-
+    padding: 0.8rem;
   }
-  input::placeholder{
+  input::placeholder {
     color: #fff;
   }
-  button{
+  button {
     all: unset;
     cursor: pointer;
     background: #2e2ea8;
     color: #fff;
     border-radius: 15px;
-    padding: .8rem;
+    padding: 0.8rem;
     text-align: center;
     font-weight: bold;
     font-size: 1rem;
   }
 }
-h3{
+h3 {
   color: #fff;
 }
