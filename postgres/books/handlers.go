@@ -13,14 +13,14 @@ import (
 func RegisterRoutes(mux *http.ServeMux) {
 	fileserver := http.FileServer(http.Dir("./assets/"))
 	mux.Handle("GET /static/", http.StripPrefix("/static", fileserver))
+	mux.HandleFunc("/", GetBooks)
+	mux.Handle("/favicon.ico", http.NotFoundHandler())
+	mux.HandleFunc("GET /books/show", GetBookById)
 	mux.HandleFunc("GET /books/create", CreateBookPage)
 	mux.HandleFunc("POST /books/create/process", CreateBookProcess)
 	mux.HandleFunc("GET /book/edit", EditBookPage)
 	mux.HandleFunc("POST /book/edit/process", EditBookProcess)
 	mux.HandleFunc("GET /book/delete", DeleteBookProcess)
-	mux.HandleFunc("/", GetBooks)
-	mux.Handle("/favicon.ico", http.NotFoundHandler())
-	mux.HandleFunc("GET /books/show", GetBookById)
 }
 func GetBooks(w http.ResponseWriter, r *http.Request) {
 	books, err := GetAllBooks()

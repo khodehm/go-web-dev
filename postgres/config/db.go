@@ -20,6 +20,7 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("Database succesfully connected!")
+	fmt.Println("✅ Database succesfully connected!")
+	fmt.Println("server running on http://localhost:9090")
 
 }
