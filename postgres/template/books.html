@@ -1,5 +1,5 @@
-{{define "books"}} {{if .}} {{range .}}
-<article class="book_card" id="{{.Isbn}}">
+{{define "books"}} {{range .}}
+<article class="card" id="{{.Isbn}}">
   <section class="card_action">
     <a href="/book/edit?isban={{.Isbn}}">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -91,7 +91,14 @@
     </section>
   </section>
 </article>
-{{if len . 0}}
-<article class="book_card">چیزی یافت نشد !</article>
+{{else}}
+  <article class="book_card">
+    <section class="card_title">
+      <span>چیزی یافت نشد !</span>
+    </section>
+    <section class="card_details">
+      <a class="btn_primary" href="/books/create">کتاب جدید</a>
+    </section>
+  </article>
 {{end}}
-{{end}} {{end}} {{end}}
+{{end}}

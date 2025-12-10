@@ -7,6 +7,7 @@ import (
 	"strconv"
 
 	"github.com/khodehm/pg/config"
+	errormeessage "github.com/khodehm/pg/error"
 )
 
 func RegisterRoutes(mux *http.ServeMux) {
@@ -15,7 +16,7 @@ func RegisterRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("GET /books/create", CreateBookPage)
 	mux.HandleFunc("POST /books/create/process", CreateBookProcess)
 	mux.HandleFunc("GET /book/edit", EditBookPage)
-	mux.HandleFunc("PATCH /book/edit/process", EditBookProcess)
+	mux.HandleFunc("POST /book/edit/process", EditBookProcess)
 	mux.HandleFunc("GET /book/delete", DeleteBookProcess)
 	mux.HandleFunc("/", GetBooks)
 	mux.Handle("/favicon.ico", http.NotFoundHandler())
@@ -64,6 +65,11 @@ func EditBookPage(w http.ResponseWriter, r *http.Request) {
 	}
 	b, err := GetBook(i)
 	if err != nil {
+		e := errormeessage.Error{
+			Error:       "کتاب مورد نظر یافت نشد",
+			Description: "کتابی با این شناسه در سیستم ثبت نشده است لطفا شناسه را بررسی کنید",
+		}
+		config.Tpl.ExecuteTemplate(w, "error.html", e)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -78,12 +84,20 @@ func CreateBookProcess(w http.ResponseWriter, r *http.Request) {
 	p, _ := strconv.ParseFloat(r.FormValue("price"), 32)
 	b.Price = float32(p)
 	if b.Author == " " || b.Isbn == " " || b.Title == " " {
-		http.Error(w, "misiing reqired fields", http.StatusBadRequest)
+		e := errormeessage.Error{
+			Error:       "کتاب ایجاد نشد!",
+			Description: "پارامتر های فرم به درستی تکمیل نشده!",
+		}
+		config.Tpl.ExecuteTemplate(w, "error.html", e)
 		return
 	}
 	_, err := config.DB.Exec("INSERT INTO books (isbn, title, author, price) VALUES($1,$2,$3,$4)", b.Isbn, b.Title, b.Author, b.Price)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		e := errormeessage.Error{
+			Error:       "کتاب ایجاد نشد",
+			Description: err.Error(),
+		}
+		config.Tpl.ExecuteTemplate(w, "error.html", e)
 		return
 	}
 	http.Redirect(w, r, "/", http.StatusSeeOther)
@@ -96,12 +110,20 @@ func EditBookProcess(w http.ResponseWriter, r *http.Request) {
 	p, _ := strconv.ParseFloat(r.FormValue("price"), 32)
 	b.Price = float32(p)
 	if b.Author == " " || b.Isbn == " " || b.Title == " " {
-		http.Error(w, "misiing reqired fields", http.StatusBadRequest)
+		e := errormeessage.Error{
+			Error:       "کتاب ویرای نشد!",
+			Description: "پارامتر های فرم به درستی تکمیل نشده!",
+		}
+		config.Tpl.ExecuteTemplate(w, "error.html", e)
 		return
 	}
 	err := UpdateBook(b)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		e := errormeessage.Error{
+			Error:       "کتاب ویرایش نشد",
+			Description: err.Error(),
+		}
+		config.Tpl.ExecuteTemplate(w, "error.html", e)
 		return
 	}
 	http.Redirect(w, r, "/", http.StatusSeeOther)
@@ -114,7 +136,11 @@ func DeleteBookProcess(w http.ResponseWriter, r *http.Request) {
 	}
 	err := DeleteBook(i)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		e := errormeessage.Error{
+			Error:       "کتاب ایجاد نشد",
+			Description: err.Error(),
+		}
+		config.Tpl.ExecuteTemplate(w, "error.html", e)
 		return
 	}
 	http.Redirect(w, r, "/", http.StatusSeeOther)

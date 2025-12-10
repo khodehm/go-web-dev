@@ -30,7 +30,7 @@ main {
     gap: 1rem;
   }
 }
-.book_card {
+.card {
   position: relative;
   border-radius: 15px;
   padding: 1rem;
@@ -43,14 +43,13 @@ main {
   .card_title {
     display: flex;
     flex-wrap: nowrap;
-    width: 70% ;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;
     font-size: 1.5rem;
     font-weight: bold;
   }
   .card_price {
-    display: flex; 
+    display: flex;
     justify-content: space-between;
     background: #5656fc;
     border-radius: 10px;
@@ -65,13 +64,16 @@ main {
     display: flex;
     gap: 1rem;
     a {
-      svg{
+      svg {
         stroke: white !important;
         height: 18px;
         width: 18px;
-
       }
     }
+  }
+  .card_details{
+    display: flex;
+    flex-direction: column;
   }
 }
 nav {
@@ -84,14 +86,6 @@ nav {
   background: #5555ff;
   h3 {
     font-size: 20px;
-  }
-  a {
-    background: #2e2ea8;
-    text-decoration: none;
-    border-radius: 15px;
-    color: #fff;
-    font-size: 14px;
-    padding: 10px;
   }
 }
 .create_book {
@@ -127,4 +121,22 @@ nav {
 }
 h3 {
   color: #fff;
+}
+.btn {
+  background: #2e2ea8;
+  text-decoration: none;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px;
+}
+.btn_primary{
+  background: #5656fc;
+  text-align: center;
+  width: 100%;
+  text-decoration: none;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px;
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{.Error}}</title>
+    <link rel="stylesheet" href="/static/card.css" />
+    <link rel="stylesheet" href="/static/Yekan-Font-3.0/Yekan.css" />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body  dir="rtl">
+    {{template "nav"}}
+    <div class="card">
+      <div class="card__shine"></div>
+      <div class="card__glow"></div>
+      <div class="card__content">
+        <div class="card__image">
+          <img src="/static/image/error.svg" alt="svg">
+        </div>
+        <div class="card__text">
+          <p class="card__title">
+            <span>
+              <svg viewBox="0 0 24 24" fill="#000" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-1.5-5.009c0-.867.659-1.491 1.491-1.491.85 0 1.509.624 1.509 1.491 0 .867-.659 1.509-1.509 1.509-.832 0-1.491-.642-1.491-1.509zM11.172 6a.5.5 0 0 0-.499.522l.306 7a.5.5 0 0 0 .5.478h1.043a.5.5 0 0 0 .5-.478l.305-7a.5.5 0 0 0-.5-.522h-1.655z" fill="#ff0000"></path></g></svg>
+            </span>
+            <span>
+              {{.Error}}
+            </span>
+          </p>
+          <p class="card__description">{{.Description}}</p>
+        </div>
+        <a class="card__footer" href="/">
+          <span class="card__price">
+              بازگشتی به صفحه اصلی
+          </span>
+          <div class="card__button">
+            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#fff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#fff" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"></path><path fill="#fff" d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"></path></g></svg> 
+          </div>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

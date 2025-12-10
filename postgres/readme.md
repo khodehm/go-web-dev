@@ -1,10 +1,10 @@
-# Go + Postgres example 
-## in this examples i demonstrate connection to `pg` database and run some basic Querys
-> note 
-> 
-# getting started 
+# Go + Postgres Book Store app
+## in this examples i demonstrate connection to `pg` database and `CRUD` action in
+# Getting started 
 > you should have go - postgresql installed 
+> After you installed postgres in your machine run the executeable files in `build/` directory
+> Now open it your browser 
 ```
-    go get github.com/lib/pq
-    go run main.go
+ http://localhost:9090/
+
 ```

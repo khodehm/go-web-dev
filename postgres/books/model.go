@@ -39,7 +39,7 @@ func GetAllBooks() ([]Book, error) {
 	return books, nil
 }
 func UpdateBook(bk Book) error {
-	_, err := config.DB.Exec("UPDATE books SET title=$1,author=$2,price=$3 WHERE isbn=$1", bk.Isbn, bk.Title, bk.Author, bk.Price)
+	_, err := config.DB.Exec("UPDATE books SET isbn=$1, title=$2,author=$3,price=$4 WHERE isbn=$1", bk.Isbn, bk.Title, bk.Author, bk.Price)
 	if err != nil {
 		return err
 	}
