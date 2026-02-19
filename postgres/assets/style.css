@@ -8,8 +8,13 @@ body {
   gap: 1rem;
 }
 main {
-  padding: 4rem;
+  padding: 1rem;
   font-family: "Yekan";
+}
+@media (min-width: 680px) {
+  main {
+    padding: 4rem;
+  }
 }
 .books {
   display: grid;
@@ -84,7 +89,7 @@ h3 {
   font-size: 14px;
   padding: 10px;
 }
-.btn_primary{
+.btn_primary {
   background: #5656fc;
   text-align: center;
   width: 100%;

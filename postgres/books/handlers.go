@@ -81,6 +81,7 @@ func CreateBookProcess(w http.ResponseWriter, r *http.Request) {
 	b.Isbn = r.FormValue("isbn")
 	b.Title = r.FormValue("title")
 	b.Author = r.FormValue("author")
+	// b.Description = r.FormValue("description")
 	p, _ := strconv.ParseFloat(r.FormValue("price"), 32)
 	b.Price = float32(p)
 	if b.Author == " " || b.Isbn == " " || b.Title == " " {
